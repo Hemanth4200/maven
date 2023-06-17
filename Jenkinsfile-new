@@ -1,8 +1,8 @@
 pipeline {
     // add your slave label name
-    agent { label 'my_maven_slave'}
+    agent { label 'tomcat'}
     tools{
-        maven 'maven3.8.6'
+        maven 'maven'
     }
     stages {
         stage ('Checkout SCM') {
@@ -16,7 +16,7 @@ pipeline {
         stage ('Build') {
 
             steps {
-               sh 'mvn package'
+               sh 'mvn clean package'
             }
         }
         
